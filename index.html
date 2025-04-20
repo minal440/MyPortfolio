@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+<body class="neutral-mode">
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-bar"></div>
+
+  <!-- Theme Toggle -->
+  <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#languages">Languages</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Home -->
+  <section class="section home" id="home" data-aos="fade-up">
+    <img src="Image.jpg" alt="Profile" class="profile-pic" />
+    <h1>Hello, I'm <span class="typed-text"></span><span class="cursor">|</span></h1>
+    <p>Electronics & Communication Engineering Student</p>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>I am an Electronics and Communication Engineering Student passionate about technology and innovation. I have a strong interest in communication systems, the Internet of Things (IoT), and emerging tech trends...</p>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects" data-aos="fade-up">
+    <h2>Projects</h2>
+    <div class="projects-wrapper">
+      <div class="project-box" data-aos="zoom-in"><img src="SWP.png" alt="Weather Monitor" class="project-img" />
+        <h3>Weather Monitor</h3>
+        <p>Compact system using NodeMCU ESP8266 and sensors for smart weather monitoring via Blynk.</p>
+      </div>
+      <div class="project-box" data-aos="zoom-in"><img src="EQP.png" alt="Earthquake Detector" class="project-img" />
+        <h3>Earthquake Detector</h3>
+        <p>Arduino Nano and accelerometer based seismic activity detection and alert system.</p>
+      </div>
+      <div class="project-box" data-aos="zoom-in"><img src="SPS.png" alt="Parking Assistant" class="project-img" />
+        <h3>Parking Assistant</h3>
+        <p>IR sensors, Arduino, and servo motor based smart parking solution for automated control.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section" id="experience" data-aos="fade-up">
+    <h2>Experience</h2>
+    <div class="projects-wrapper">
+      <div class="project-box" data-aos="fade-up"><h3>Powertrains<br>TEAM-BOLT</h3>
+        <p>Design and optimization of electric two-wheeler powertrains with simulation and real-world testing.</p>
+      </div>
+      <div class="project-box" data-aos="fade-up"><h3>Design Coordinator<br>CoDeC</h3>
+        <p>Creating posters, standees, and media for event branding with consistent visual style.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section" id="skills" data-aos="fade-up">
+    <h2>Skills</h2>
+    <div class="skills-container">
+      <div class="skill" data-aos="flip-left"><img src="SMLK.png" alt="Simulink" /><span>Simulink</span></div>
+      <div class="skill" data-aos="flip-left"><img src="ML.png" alt="ML" /><span>Machine Learning</span></div>
+      <div class="skill" data-aos="flip-left"><img src="CANVA.png" alt="CANVA" /><span>CANVA</span></div>
+      <div class="skill" data-aos="flip-left"><img src="MLSIM.png" alt="Multisim" /><span>Multisim</span></div>
+    </div>
+  </section>
+
+  <!-- Languages -->
+  <section class="section" id="languages" data-aos="fade-up">
+    <h2>Languages</h2>
+    <div class="language-container">
+      <div class="language-circle" data-aos="fade-up"><img src="PYTHON.png" alt="Python"><span>Python</span></div>
+      <div class="language-circle" data-aos="fade-up"><img src="C.png" alt="C"><span>C</span></div>
+      <div class="language-circle" data-aos="fade-up"><img src="CPP.png" alt="C++"><span>C++</span></div>
+      <div class="language-circle" data-aos="fade-up"><img src="EMBC.png" alt="Embedded C"><span>Embedded C</span></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact" data-aos="fade-up">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:minal.shinde@mitwpu.edu.in">minal.shinde@mitwpu.edu.in</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/minal-shinde-912a11305/" target="_blank">Minal Shinde</a></p>
+  </section>
+
+  <!-- Back to Top -->
+  <a href="#home" class="back-to-top">↑</a>
+
+  <footer>
+    &copy; 2025 Minal Shinde. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    // Typing effect
+    const typedText = document.querySelector(".typed-text");
+    const cursor = document.querySelector(".cursor");
+    const words = ["Minal Shinde", "an ECE Enthusiast"];
+    let wordIndex = 0, charIndex = 0, typing = true;
+
+    function type() {
+      if (typing) {
+        if (charIndex < words[wordIndex].length) {
+          typedText.textContent += words[wordIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(type, 150);
+        } else {
+          typing = false;
+          setTimeout(type, 1500);
+        }
+      } else {
+        if (charIndex > 0) {
+          typedText.textContent = words[wordIndex].substring(0, charIndex - 1);
+          charIndex--;
+          setTimeout(type, 100);
+        } else {
+          typing = true;
+          wordIndex = (wordIndex + 1) % words.length;
+          setTimeout(type, 300);
+        }
+      }
+    }
+    document.addEventListener("DOMContentLoaded", type);
+
+    // Scroll progress bar
+    window.addEventListener("scroll", () => {
+      const scrollBar = document.getElementById("scroll-bar");
+      const scroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      scrollBar.style.width = `${(scroll / height) * 100}%`;
+    });
+
+    // Theme Toggle
+    const toggle = document.getElementById("theme-toggle");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      toggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+    });
+  </script>
+</body>
+</html>
